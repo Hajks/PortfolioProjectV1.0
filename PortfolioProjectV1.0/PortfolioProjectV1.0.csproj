@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,19 +91,64 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\Home\CharacterDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Interfaces\ICharacterProvider.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
+    <Compile Include="TibiaData\AccountInformation.cs" />
+    <Compile Include="Models\Characters.cs" />
+    <Compile Include="TibiaData\Achievement.cs" />
+    <Compile Include="TibiaData\Created.cs" />
+    <Compile Include="TibiaData\Date.cs" />
+    <Compile Include="TibiaData\Death.cs" />
+    <Compile Include="TibiaData\Guild.cs" />
+    <Compile Include="TibiaData\House.cs" />
+    <Compile Include="TibiaData\Information.cs" />
+    <Compile Include="TibiaData\Involved.cs" />
+    <Compile Include="TibiaData\LastLogin.cs" />
+    <Compile Include="TibiaData\OnlineRecords.cs" />
+    <Compile Include="TibiaData\OtherCharacters.cs" />
+    <Compile Include="TibiaData\Data.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TibiaData\PlayersOnline.cs" />
+    <Compile Include="TibiaData\SingleOrArrayConverter.cs" />
+    <Compile Include="TibiaData\TibiaDataAPI\CharacterApi.cs" />
+    <Compile Include="TibiaData\RootObject.cs" />
+    <Compile Include="TibiaData\TibiaDataAPI\WorldApi.cs" />
+    <Compile Include="TibiaData\World.cs" />
+    <Compile Include="TibiaData\WorldInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\InvalidNickname.cshtml" />
+    <Content Include="Views\Home\World.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,8 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

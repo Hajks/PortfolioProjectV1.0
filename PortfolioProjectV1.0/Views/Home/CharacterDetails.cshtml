@@ -1,0 +1,20 @@
+﻿@using PortfolioProjectV1._0.TibiaData
+@model PortfolioProjectV1._0.Models.Characters
+
+@{
+    ViewBag.Title = "Character Details";
+}
+
+<h2>Character Details:</h2>
+<p>Name: @Model.Data.Name</p>
+<p>Level: @Model.Data.Level</p>
+<p>Residence: @Model.Data.Residence</p>
+<p>Vocation: @Model.Data.Vocation</p>
+<p>World: @Model.Data.World</p>
+<p>Sex: @Model.Data.Sex</p>
+@foreach (Death death in Model.Deaths)
+{
+<p>At Level: @death.date  @death.Reason @death.Level  @death.involved </p>
+} 
+
+
