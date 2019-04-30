@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Web.WebPages;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using PortfolioProjectV1._0.Infrastructure.Interfaces;
@@ -41,17 +42,23 @@ namespace PortfolioProjectV1._0.TibiaData.TibiaDataAPI
 
         public bool NicknameIsValid()
         {
-            string jsonString = GetJsonFromApi();
-
-            if (jsonString.Contains("Character does not exist."))
+            if (_name.IsEmpty())
             {
                 return false;
             }
             else
             {
-                return true;
-            }
+                string jsonString = GetJsonFromApi();
 
+                if (jsonString.Contains("Character does not exist."))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }

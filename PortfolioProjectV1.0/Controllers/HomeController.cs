@@ -39,11 +39,13 @@ namespace PortfolioProjectV1._0.Controllers
         [HttpGet]
         public ViewResult World()
         {
-            return View();
+            WorldApi worldApi = new WorldApi("Worlds");
+
+            return View(worldApi);
         }
 
         [HttpPost]
-        public ViewResult World()
+        public ViewResult World(string name)
         {
             return View();
         }

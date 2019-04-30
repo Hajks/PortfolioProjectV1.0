@@ -1,8 +1,28 @@
-﻿@model PortfolioProjectV1._0.Models.RootObject
+﻿
+@using PortfolioProjectV1._0.TibiaData
+@model PortfolioProjectV1._0.TibiaData.TibiaDataAPI.WorldApi
 
 @{
     ViewBag.Title = "World";
 }
 
+
 <h2>World</h2>
+
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown link
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="Worlds">
+        
+        <a class="dropdown-item" href="~/Home/Worlds/">@world.Worldtype</a>
+
+        @foreach (AllWorld world in @Model.RootObject.Worlds.Allworlds)
+        {
+            <a class="dropdown-item" href="~/Home/Worlds/">@world.Worldtype</a>
+        }
+    </div>
+</div>
+
 

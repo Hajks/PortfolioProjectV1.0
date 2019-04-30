@@ -12,17 +12,18 @@ namespace PortfolioProjectV1._0.TibiaData.TibiaDataAPI
     {
         private string _name;
 
-        public RootObject Worlds { get; set; }
+        public RootObject RootObject { get; set; }
 
         public WorldApi(string Name)
         {
             _name = Name;
+            GetDetailsFromApi();
         }
 
         public RootObject GetDetailsFromApi()
         {
-                Worlds = JsonConvert.DeserializeObject<RootObject>(GetJsonFromApi());
-                return Worlds;
+                RootObject = JsonConvert.DeserializeObject<RootObject>(GetJsonFromApi());
+                return RootObject;
         }
 
         public string GetJsonFromApi()
@@ -41,6 +42,25 @@ namespace PortfolioProjectV1._0.TibiaData.TibiaDataAPI
 
 
             return jsonString;
+        }
+
+        public List<string> GetPvpServerType()
+        {
+            List<string> pvpTypesList = new List<string>();
+
+            foreach (AllWorld world in RootObject.Worlds.Allworlds)
+            {
+                if (pvpTypesList.Contains(world.Name))
+                {
+                    //doNothing
+                }
+                else
+                {
+                    pvpTypesList.Add(world.Name);
+                }
+            }
+
+            return pvpTypesList;
         }
 
 
